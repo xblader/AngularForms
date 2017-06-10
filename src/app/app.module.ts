@@ -7,6 +7,7 @@ import { HttpModule } from '@angular/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DataFormComponent } from './data-form/data-form.component';
+import { CampoControlErrorComponent } from './campo-control-error/campo-control-error.component';
 
 @NgModule({
   declarations: [

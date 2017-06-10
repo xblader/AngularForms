@@ -1,18 +1,27 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-  <div class="form-group"
-  [class.has-error]="!inputnome.valid && inputnome.touched"
-  [class.has-feedback]="!inputnome.valid && inputnome.touched">
-    <label for="nome">Nome</label>
-    <input type="text" class="form-control" id="nome" name="nome" 
-    placeholder="Nome" [ngModel]="usuario.nome" required #inputnome="ngModel">
-    <div class="alert alert-danger" role="alert" *ngIf="!inputnome.valid && inputnome.touched">
-      Nome é obrigatório.
+  <div class="form-group" [ngClass]="aplicaCssError(inputnome)">
+    <div class="col-sm-12">
+      <label for="nome">Nome</label>
+    </div>
+    <div class="col-sm-12">
+      <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome" [ngModel]="usuario.nome" required #inputnome="ngModel">
+    
+    <app-campo-control-error [mostrarErro]="validarTouchEValid(inputnome)" 
+    msgErro="Nome é obrigatório"></app-campo-control-error>
     </div>
   </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="email" class="form-control" id="email" name="email" 
-    placeholder="email@email.com" [ngModel]="usuario.email" required email #inputemail>
+  
+  <div class="form-group" [ngClass]="aplicaCssError(inputemail)">
+    <div class="col-sm-12">
+      <label for="email">Email</label>
+    </div>
+    <div class="col-sm-12">
+      <input type="email" class="form-control" id="email" name="email" 
+      placeholder="email@email.com" [ngModel]="usuario.email" required email #inputemail="ngModel">
+    
+    <app-campo-control-error [mostrarErro]="validarTouchEValid(inputemail)" 
+    msgErro="Email é obrigatório"></app-campo-control-error>
+    </div>
   </div>
   <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
 </form>
