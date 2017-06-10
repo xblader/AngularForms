@@ -1,10 +1,12 @@
 <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-  <div class="form-group">
+  <div class="form-group"
+  [class.has-error]="!inputnome.valid && inputnome.touched"
+  [class.has-feedback]="!inputnome.valid && inputnome.touched">
     <label for="nome">Nome</label>
     <input type="text" class="form-control" id="nome" name="nome" 
-    placeholder="Nome" [ngModel]="usuario.nome" required #inputnome>
-    <div>
-      {{inputnome.className}}
+    placeholder="Nome" [ngModel]="usuario.nome" required #inputnome="ngModel">
+    <div class="alert alert-danger" role="alert" *ngIf="!inputnome.valid && inputnome.touched">
+      Nome é obrigatório.
     </div>
   </div>
   <div class="form-group">
