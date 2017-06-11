@@ -20,14 +20,14 @@ export class TemplateFormComponent implements OnInit {
     console.log(f);
   }
 
-  validarTouchEValid(campo){
+  verificaValidTouched(campo){
     return !campo.valid && campo.touched;
   }
 
-  aplicaCssError(campo){
+  aplicaCssErro(campo){
     return {
-    'has-error': this.validarTouchEValid(campo),
-    'has-feedback':this.validarTouchEValid(campo)
+    'has-error': this.verificaValidTouched(campo),
+    'has-feedback':this.verificaValidTouched(campo)
     }
   }
 
