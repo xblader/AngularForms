@@ -44,7 +44,7 @@
     <div class="col-md-3" [ngClass]="aplicaCssErro(cep)">
       <label for="cep" class="control-label">CEP</label>
       <input type="text" class="form-control" id="cep" 
-        name="cep" ngModel required #cep="ngModel">
+        name="cep" ngModel required #cep="ngModel" (blur)="consultaCEP($event.target.value, f)">
       <app-campo-control-erro 
         [mostrarErro]="verificaValidTouched(cep)" 
         msgErro="CEP é obrigatório.">
@@ -119,8 +119,7 @@
    </div>
   </div>
 
-  <button type="submit" class="btn btn-primary"
-    [disabled]="!f.valid">Submit</button>
+  <button type="submit" class="btn btn-primary">Submit</button>
 
-  <!--<app-form-debug [form]="f"></app-form-debug>-->
+  <app-form-debug [form]="f"></app-form-debug>
 </form>
