@@ -11,11 +11,7 @@ export class DataFormComponent implements OnInit {
 
   formulario: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private http: Http) { }
-
-  hero : any = {};
- 
-  submitted = false;  
+  constructor(private formBuilder: FormBuilder, private http: Http) { } 
 
   ngOnInit() {
     this.buildForm();    
@@ -67,10 +63,7 @@ export class DataFormComponent implements OnInit {
     }
   };
 
-  onSubmit(){
-    this.submitted = true;
-    this.hero = this.formulario.value;
-    
+  onSubmit(){    
      this.http.post('https://httpbin.org/post',JSON.stringify(this.formulario.value))
              .map(res => res)
              .subscribe(dados => console.log(dados));
