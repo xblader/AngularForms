@@ -1,3 +1,6 @@
+import { CustomHttp } from './Interceptors/HttpInterceptor';
+import { Http, XHRBackend, RequestOptions } from '@angular/http';
+import { HttpSubjectService } from './services/HttpSubject.service';
 import { CampoControlErrorComponent } from './campo-control-error/campo-control-error.component';
 import { FormDebugComponent } from './form-debug/form-debug.component';
 import { NgModule } from '@angular/core';
@@ -10,6 +13,15 @@ import { CommonModule } from '@angular/common';
   declarations: [
     FormDebugComponent,
     CampoControlErrorComponent
+  ],
+  providers:[
+    HttpSubjectService,
+        {
+           provide: Http, useFactory: (backend: XHRBackend, defaultOptions: RequestOptions, httpSubjectService: HttpSubjectService) => {
+                return new CustomHttp(backend, defaultOptions, httpSubjectService);
+            },
+            deps: [XHRBackend, RequestOptions, HttpSubjectService]
+        }
   ],
   exports:[
     FormDebugComponent,

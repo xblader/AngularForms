@@ -1,3 +1,4 @@
+import { HttpSubjectService } from './../shared/services/HttpSubject.service';
 import { Http } from '@angular/http';
 import { Component, OnInit } from '@angular/core';
 import 'rxjs/add/operator/map';
@@ -13,9 +14,14 @@ export class TemplateFormComponent implements OnInit {
     nome:'',
     email:''
   };
-  constructor(private http: Http) { }
+  constructor(private http: Http, private httpSubjectService: HttpSubjectService) { }
 
   ngOnInit() {
+    this.httpSubjectService.notificationSubject.subscribe({
+            next: (json: any) => {
+                console.log("Call Notification Service");
+            }
+        });
   }
 
   onSubmit(form){
