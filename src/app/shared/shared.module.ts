@@ -17,10 +17,9 @@ import { CommonModule } from '@angular/common';
   providers:[
     HttpSubjectService,
         {
-           provide: Http, useFactory: (backend: XHRBackend, defaultOptions: RequestOptions, httpSubjectService: HttpSubjectService) => {
-                return new CustomHttp(backend, defaultOptions, httpSubjectService);
-            },
-            deps: [XHRBackend, RequestOptions, HttpSubjectService]
+           provide: Http, 
+           useFactory: heroServiceFactory,
+           deps: [XHRBackend, RequestOptions, HttpSubjectService]
         }
   ],
   exports:[
@@ -28,3 +27,7 @@ import { CommonModule } from '@angular/common';
     CampoControlErrorComponent]
 })
 export class SharedModule { }
+
+export function heroServiceFactory (backend: XHRBackend, defaultOptions: RequestOptions, httpSubjectService: HttpSubjectService) {
+    return new CustomHttp(backend, defaultOptions, httpSubjectService);
+};
