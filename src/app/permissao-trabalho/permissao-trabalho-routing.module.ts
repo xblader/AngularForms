@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 const routes: Routes = [ 
-    {path:'emissaoPT', component: EmissaoPTComponent}
+    {path:'emissaoPT', component: EmissaoPTComponent},
+    {path: '', component: EmissaoPTComponent}
    // {path:'naoEncontrado', component: NaoEncontradoComponent}     
 ];
 
