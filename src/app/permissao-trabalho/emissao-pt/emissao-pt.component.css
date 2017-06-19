@@ -1,0 +1,22 @@
+div.header div.title {
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: #FFF;
+    /*background-image: url('../img/header-gradient.png');*/
+    background-repeat: repeat-x;
+    float: left;
+}
+div.header div.title div.label {
+    display: block;
+    float: left;
+    margin-left: 18px;
+    color: #395E39;
+    font-size: 24px;
+    font-style: italic;
+    font-weight: bold;
+}
+div.filter{    
+    border-bottom: 1px solid gray;
+    padding: 5px;
+}
