@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @Component({
   selector: 'app-emissao-pt',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./emissao-pt.component.css']
 })
 export class EmissaoPTComponent implements OnInit {
-
+  
   constructor() { }
 
   ngOnInit() {
